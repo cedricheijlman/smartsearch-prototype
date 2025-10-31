@@ -1,8 +1,8 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# ===========================
+# FRONTEND (Next.js / Node)
+# ===========================
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -11,31 +11,74 @@
 !.yarn/versions
 
 # testing
-/coverage
+coverage/
 
-# next.js
-/.next/
-/out/
+# Next.js
+.next/
+out/
 
 # production
-/build
+build/
 
 # misc
 .DS_Store
 *.pem
 
-# debug
+# debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
+# env files (veilig!)
+.env
+.env.*
 .vercel
+*.local
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ===========================
+# BACKEND (Python / FastAPI)
+# ===========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.sqlite3
+*.db
+*.db-journal
+*.log
+*.tmp
+*.bak
+
+# virtual environments
+venv/
+env/
+.venv/
+
+# build artifacts
+dist/
+build/
+*.egg-info/
+*.spec
+
+# testing / cache
+.pytest_cache/
+.tox/
+.nox/
+coverage/
+htmlcov/
+.cache/
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.swp
+
+# environment files
+/backend/.env
+/backend/.env.*
