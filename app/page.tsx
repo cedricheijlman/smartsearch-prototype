@@ -13,6 +13,7 @@ export default function Home() {
   const handleSubmit = async () => {
     const res = await fetch("http://127.0.0.1:8000/test", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: prompt }),
     });
 
@@ -43,6 +44,10 @@ export default function Home() {
         >
           <IoIosSend className="text-[19px]" />
         </div>
+      </div>
+
+      <div className="mt-4">
+        <p>{data ? JSON.stringify(data) : "No data"}</p>
       </div>
     </div>
   );
