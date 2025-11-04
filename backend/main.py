@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from dotenv import load_dotenv
 import os
 from openai import OpenAI
@@ -31,9 +31,11 @@ def main():
   return {"Message": "Hello World"}
 
 
-@app.post("/test")
+@app.post("/scan_entities")
 async def scan_entities(body: InputText):
-  print(body.text)
+  if not body.text.strip():
+    raise HTTPException(status_code=400, detail="Tekst mag niet leeg zijn")
+  
   response = client.responses.create(
     model="gpt-4o-mini",
     input=[
